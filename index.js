@@ -5,6 +5,7 @@ xhr.get('https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693', funct
   if (err) console.log(err) // do something
 
   console.log(data)
+console.log("im updating")
   document.body.innerHTML = example({ name: data.body.map_url });
 })
 
