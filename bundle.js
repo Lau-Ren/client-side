@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var xhr=require("xhr"),example=require("./views/example.hbs");xhr.get("https://api.wheretheiss.at/v1/satellites/25544/positions",function(e,o){e&&console.log(e);var s=JSON.parse(o.body);console.log(s),console.log("sat positions"),document.body.innerHTML=s({sat:s})});
-},{"./views/example.hbs":30,"xhr":27}],2:[function(require,module,exports){
+var xhr=require("xhr"),sat=require("./views/sat.hbs");xhr.get("https://api.wheretheiss.at/v1/satellites/25544/positions",function(s,e){s&&console.log(s);var o=JSON.parse(e.body);console.log(o),console.log("sat positions"),document.body.innerHTML=o({sat:o})});
+},{"./views/sat.hbs":30,"xhr":27}],2:[function(require,module,exports){
 function forEach(r,t,o){if(!isFunction(t))throw new TypeError("iterator must be a function");arguments.length<3&&(o=this),"[object Array]"===toString.call(r)?forEachArray(r,t,o):"string"==typeof r?forEachString(r,t,o):forEachObject(r,t,o)}function forEachArray(r,t,o){for(var n=0,a=r.length;a>n;n++)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}function forEachString(r,t,o){for(var n=0,a=r.length;a>n;n++)t.call(o,r.charAt(n),n,r)}function forEachObject(r,t,o){for(var n in r)hasOwnProperty.call(r,n)&&t.call(o,r[n],n,r)}var isFunction=require("is-function");module.exports=forEach;var toString=Object.prototype.toString,hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{"is-function":24}],3:[function(require,module,exports){
@@ -89,6 +89,6 @@ function once(n){var o=!1;return function(){return o?void 0:(o=!0,n.apply(this,a
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],30:[function(require,module,exports){
-var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,l,r,a,n){var u;return'<a href="'+e.escapeExpression((u=null!=(u=r.url||(null!=l?l.url:l))?u:r.helperMissing,"function"==typeof u?u.call(null!=l?l:{},{name:"url",hash:{},data:n}):u))+'"></a>\n'},useData:!0});
+var HandlebarsCompiler=require("hbsfy/runtime");module.exports=HandlebarsCompiler.template({compiler:[7,">= 4.0.0"],main:function(e,a,l,n,r){var t;return"<h1>Satellite</h1>\n<div>"+e.escapeExpression((t=null!=(t=l.sat||(null!=a?a.sat:a))?t:l.helperMissing,"function"==typeof t?t.call(null!=a?a:{},{name:"sat",hash:{},data:r}):t))+"</div>\n"},useData:!0});
 
 },{"hbsfy/runtime":23}]},{},[1]);
