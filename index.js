@@ -3,9 +3,9 @@ var example = require('./views/example.hbs')
 
 xhr.get('https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693', function(err, data) {
   if (err) console.log(err) // do something
-
-  console.log(JSON.parse(data.body).map_url)
+  var map = JSON.parse(data.body).map_url
+  console.log(map)
   console.log("im updating3")
-  document.body.innerHTML = example({ url: data.body.map_url });
+  document.body.innerHTML = example({ url: map });
 })
 
