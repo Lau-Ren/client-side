@@ -6,6 +6,6 @@ xhr.get('https://api.wheretheiss.at/v1/satellites/25544', function(err, data) {
   var sat = JSON.parse(data.body)
   console.log(sat)
   console.log("#25544")
-  document.body.innerHTML = sat({sat: sat});
+  document.body.innerHTML = sat(sat)
 })
 
